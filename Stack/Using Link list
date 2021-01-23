@@ -1,0 +1,107 @@
+//Author - Noobie
+
+#include<iostream>
+using namespace std;
+
+class stack{
+public:
+	int data;
+	stack* next;
+
+};
+
+stack* head=NULL;
+
+stack* create_node(){
+    
+    stack* temp= new stack();
+    cin>>temp->data;
+    temp->next=NULL;
+     
+    return temp; 
+}
+
+void insert_front(stack* temp)
+{
+     
+	if(head==NULL)
+       head=temp;
+    
+    else{
+
+   	  stack *t=head;
+   	  head=temp;
+   	  head->next=t;
+
+    }
+
+}
+
+void show()
+{
+    stack* list=head;
+
+	if(list==NULL)
+	    cout<<"empty list";
+
+	else
+	{
+		while(list!=NULL)
+		{
+			cout<<list->data<<"->";
+            list = list->next;
+		}
+
+		cout<<"NULL\n";
+	}
+}
+
+void delete_front()
+{
+    if(head==NULL)
+    cout<<"Underflow\n";
+   
+    else{
+      
+    head=head->next;   
+    }
+}
+
+int main()       
+    
+    {
+      
+        #ifndef ONLINE_JUDGE
+          freopen("Input.txt","r",stdin);
+          freopen("Output.txt","w",stdout);
+        #endif
+
+        ios_base::sync_with_stdio(false);
+            cin.tie(NULL);
+            cout.tie(NULL);
+            
+    //***************Write code here*******************//
+        
+
+        for(int i=0;i<4;i++)
+        {
+        	stack* temp=create_node();
+        	insert_front(temp);
+        }
+ 
+        show();
+        delete_front();
+        show();
+        delete_front();
+        show();
+        
+        stack* temp=create_node();
+        	insert_front(temp);
+        
+        temp=create_node();
+        	insert_front(temp);
+
+        show();	
+        return 0;
+ 
+}
