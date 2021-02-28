@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef unsigned int ui;
+typedef unsigned long long ull;
+#define pB push_back
+#define  vi vector <int> 
+#define  vii vector<vector<int>>
+#define FOR(i,a,b) for(int i=(a);i<(b);++i)
+#define ROF(i,a,b) for(int i=(a);i>=(b);--i)
+
+
+void Sieve(int n)
+{
+       bool prime[n + 1];
+    	memset(prime, true, sizeof(prime));
+
+ 
+    for (int p = 2; p * p <= n; p++)
+    {
+        if (prime[p] == true) 
+        {
+            for (int i = p * p; i <= n; i += p)
+                prime[i] = false;
+        }
+    }
+
+}
+
+// int solve(int );
+
+int main()       
+{
+      
+      	#ifndef ONLINE_JUDGE
+        	freopen("Input.txt","r",stdin);
+        	freopen("Output.txt","w",stdout);
+        #endif
+        
+
+        ios_base::sync_with_stdio(false);
+            cin.tie(NULL);
+            cout.tie(NULL);
+
+
+    /***************Write code here*******************/
+
+            int t;
+
+            cin>>t;
+
+            while(t--)
+            {
+
+            }
+
+
+     
+	   return 0;
+
+}
