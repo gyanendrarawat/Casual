@@ -1,2 +1,0 @@
-# Casual
-Just checking out
