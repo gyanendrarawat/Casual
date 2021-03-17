@@ -1,0 +1,140 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef unsigned int ui;
+typedef unsigned long long ull;
+typedef long long ll;
+#define pB push_back
+#define mP make_pair
+#define  vi vector <int> 
+#define  vii vector<vector<int>>
+#define FOR(i,a,b) for(int i=(a);i<(b);++i)
+#define ROF(i,a,b) for(int i=(a);i>=(b);--i)
+#define nl endl
+#define iM INT_MAX
+#define w(x)  int x; cin>>x; while(x--)
+#define sve(n) bool prime[n]; Sieve(prime,n);
+
+  
+
+void Sieve(bool prime[] ,int n)
+{
+	
+	for(int i=0;i<n;i++)
+	{
+		prime[i]=true;
+	}
+
+    for (int p = 2; p*p < n; p++)
+    {
+        if (prime[p]) 								
+        {
+            for (int i = p * p; i <= n; i += p)
+                prime[i] = false;
+        }
+    }
+
+}
+
+
+class graph
+{
+	int n;
+	vector<int> *lst;
+
+	public:
+		graph(int );
+
+		void addEdge(int ,int );
+
+		void show();
+
+		void bfs(int );
+		
+};
+
+graph::graph(int n)
+{
+	this->n=n;
+	lst = new vi [n];
+}
+
+void graph:: addEdge(int x,int y)
+{
+	lst[x].pB(y);
+	lst[y].pB(x);
+}	
+
+void graph::show()
+{
+	for (int i = 0; i<n; ++i)
+	{
+		cout<<i<<"->";
+		for(auto j:lst[i])
+		{
+			cout<<j<<" ";
+		}
+		cout<<nl;
+	}
+}
+
+void graph::bfs(int root)
+{
+	bool *visited = new bool[n]{false};
+
+	queue<int> Q;
+
+	Q.push(root);
+
+	while(!Q.empty())
+	{
+		int f = Q.front();
+		cout<<f<<"  ";
+		visited[f]=true;
+		Q.pop();
+
+		for(auto i:lst[f])
+		{
+			if(!visited[i])
+			{
+				visited[i]=true;
+				Q.push(i);
+			}
+
+		}
+	} 
+}
+
+
+
+int main()       
+{
+      
+      	#ifndef ONLINE_JUDGE
+        	freopen("Input.txt","r",stdin);
+        	freopen("Output.txt","w",stdout);
+        #endif
+        
+
+        ios_base::sync_with_stdio(false);
+            cin.tie(NULL);
+            cout.tie(NULL);
+
+
+    /***************Write code here*******************/
+    		
+
+	  	
+	  	graph g(4);
+
+	 g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(2, 0);
+    g.addEdge(2, 3);
+    g.addEdge(3, 3);
+
+	  	g.bfs(2);
+
+	  	return 0;
+}
